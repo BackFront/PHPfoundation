@@ -53,6 +53,7 @@ $url = 'http://'.$_SERVER[ 'SERVER_NAME' ].substr( $d, 0, $count );
                     echo "<div>";
                     echo "<h1 style=\"text-align:center\">KEEP<br />CALM</h1><h1 style=\"text-align:center\">404</h1><h1 style=\"text-align:center\">PAGE NOT <br /> FOUND</h1>";
                     echo "</div>";
+                    echo 'Status code: #'.http_response_code(404);
                 endif;
                 ?>
 
