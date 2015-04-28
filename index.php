@@ -1,10 +1,7 @@
 <?php
-$d = $_SERVER[ 'SCRIPT_NAME' ];
-$count = strrpos( $d, '/' );
-$url = 'http://'.$_SERVER[ 'SERVER_NAME' ].substr( $d, 0, $count );
+require_once('./.iniSis/iniSys.php');
+global $DB;
 ?>
-
-
 <!DOCTYPE html>
 <html lang="PT">
     <head>
@@ -20,9 +17,10 @@ $url = 'http://'.$_SERVER[ 'SERVER_NAME' ].substr( $d, 0, $count );
             <div class="row">
                 <nav class="collapse navbar-collapse bs-navbar-collapse">
                     <ul class="nav navbar-nav">
+                        <a href=".Inc/Autoload.inc.php"></a>
                         <li><a href="<?php echo $url; ?>/home">Home</a></li>
                         <li><a href="<?php echo $url; ?>/empresa">Empresa</a></li>
-                        <li><a href="<?php echo $url; ?>/produto">Produtos</a></li>
+                        <li><a href="<?php echo $url; ?>/produtos">Produtos</a></li>
                         <li><a href="<?php echo $url; ?>/servicos">Serviços</a></li>
                         <li><a href="<?php echo $url; ?>/contato">Contato</a></li>
                     </ul>
@@ -36,30 +34,43 @@ $url = 'http://'.$_SERVER[ 'SERVER_NAME' ].substr( $d, 0, $count );
                 if ( !empty( $getexe ) ):
 
                     if ( !empty( $getsub ) ) :
-                        //Inclue arquivo que esta dentro de algum subdiretorio
-                        $includepatch = DIRECTORY_SEPARATOR . strip_tags( trim( $getsub ) ) . DIRECTORY_SEPARATOR . 'pg-' . strip_tags( trim( $getexe ) . '.php' );
+                        //Verifica a categoria da página
+                        $getPage = clone $DB;
+                        $getPage->QRSelect( "paginas", "WHERE pag_category = :c AND pag_slug = :s", "c={$getexe}&s={$getsub}" );
+                        if ( $getPage->getResult() ):
+                            $html = "<h1>{$getPage->getResult()[ 0 ][ 'pag_name' ]}</h1>";
+                            $html .= "<p>{$getPage->getResult()[ 0 ][ 'pag_content' ]}</p>";
+                            echo utf8_encode($html);
+                        else:
+                            echo "<div>";
+                            echo "<h1 style=\"text-align:center\">KEEP<br />CALM</h1><h1 style=\"text-align:center\">404</h1><h1 style=\"text-align:center\">PAGE NOT <br /> FOUND</h1>";
+                            echo "</div>";
+                            echo 'Status code: #' . http_response_code( 404 );
+                        endif;
                     else :
-                        //Inclue arquivo que esta na raiz
-                        $includepatch = __DIR__ . DIRECTORY_SEPARATOR . 'pg-' . strip_tags( trim( $getexe ) . '.php' );
+                        //Procura a página sem a categoria
+                        $getPage = clone $DB;
+                        $getPage->QRSelect( "paginas", "WHERE pag_slug = :s", "s={$getexe}" );
+                        if ( $getPage->getResult() ):
+                            $html = "<h1>{$getPage->getResult()[ 0 ][ 'pag_name' ]}</h1>";
+                            $html .= "<p>{$getPage->getResult()[ 0 ][ 'pag_content' ]}</p>";
+                            echo utf8_encode($html);
+                        else:
+                            echo "<div>";
+                            echo "<h1 style=\"text-align:center\">KEEP<br />CALM</h1><h1 style=\"text-align:center\">404</h1><h1 style=\"text-align:center\">PAGE NOT <br /> FOUND</h1>";
+                            echo "</div>";
+                            echo 'Status code: #' . http_response_code( 404 );
+                        endif;
                     endif;
 
                 else:
-                    $includepatch = __DIR__ . DIRECTORY_SEPARATOR . 'pg-home.php';
-                endif;
-
-                if ( file_exists( $includepatch ) ):
-                    require_once($includepatch);
-                else:
-                    echo "<div>";
-                    echo "<h1 style=\"text-align:center\">KEEP<br />CALM</h1><h1 style=\"text-align:center\">404</h1><h1 style=\"text-align:center\">PAGE NOT <br /> FOUND</h1>";
-                    echo "</div>";
-                    echo 'Status code: #'.http_response_code(404);
+                    $getPage->QRSelect( "paginas", "WHERE pag_slug = :s", "s=home" );
                 endif;
                 ?>
 
             </div>
             <footer class="row">
-                <p align="center">Todos os direitos reservados - <?php echo date( 'Y' ); ?></p>
+                <p align="center">Copyright &copy; <?php echo date( 'Y' ); ?> Douglas Alves. Todos os direitos reservador</p>
             </footer>
         </div>
     </body>
