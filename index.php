@@ -24,6 +24,12 @@ global $DB;
                         <li><a href="<?php echo $url; ?>/servicos">Serviços</a></li>
                         <li><a href="<?php echo $url; ?>/contato">Contato</a></li>
                     </ul>
+                    <form class="navbar-form navbar-left" role="search" action="search.php" method="post">
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="search" placeholder="Search">
+                        </div>
+                        <button type="submit" class="btn btn-default">Submit</button>
+                    </form>
                 </nav>
             </div>
             <div class="row content">
@@ -40,7 +46,7 @@ global $DB;
                         if ( $getPage->getResult() ):
                             $html = "<h1>{$getPage->getResult()[ 0 ][ 'pag_name' ]}</h1>";
                             $html .= "<p>{$getPage->getResult()[ 0 ][ 'pag_content' ]}</p>";
-                            echo utf8_encode($html);
+                            echo utf8_encode( $html );
                         else:
                             echo "<div>";
                             echo "<h1 style=\"text-align:center\">KEEP<br />CALM</h1><h1 style=\"text-align:center\">404</h1><h1 style=\"text-align:center\">PAGE NOT <br /> FOUND</h1>";
@@ -54,7 +60,7 @@ global $DB;
                         if ( $getPage->getResult() ):
                             $html = "<h1>{$getPage->getResult()[ 0 ][ 'pag_name' ]}</h1>";
                             $html .= "<p>{$getPage->getResult()[ 0 ][ 'pag_content' ]}</p>";
-                            echo utf8_encode($html);
+                            echo utf8_encode( $html );
                         else:
                             echo "<div>";
                             echo "<h1 style=\"text-align:center\">KEEP<br />CALM</h1><h1 style=\"text-align:center\">404</h1><h1 style=\"text-align:center\">PAGE NOT <br /> FOUND</h1>";
