@@ -37,16 +37,14 @@ global $DB;
                 $getexe = filter_input( INPUT_GET, 'nav', FILTER_DEFAULT );
                 $getsub = filter_input( INPUT_GET, 'sub', FILTER_DEFAULT );
 
-                if ( !empty( $getexe ) ):
-
+                if ( isset( $getexe ) ):
                     if ( !empty( $getsub ) ) :
                         //Verifica a categoria da página
-                        $getPage = clone $DB;
                         $getPage->QRSelect( "paginas", "WHERE pag_category = :c AND pag_slug = :s", "c={$getexe}&s={$getsub}" );
                         if ( $getPage->getResult() ):
                             $html = "<h1>{$getPage->getResult()[ 0 ][ 'pag_name' ]}</h1>";
                             $html .= "<p>{$getPage->getResult()[ 0 ][ 'pag_content' ]}</p>";
-                            echo utf8_encode( $html );
+                            echo $html;
                         else:
                             echo "<div>";
                             echo "<h1 style=\"text-align:center\">KEEP<br />CALM</h1><h1 style=\"text-align:center\">404</h1><h1 style=\"text-align:center\">PAGE NOT <br /> FOUND</h1>";
@@ -60,7 +58,7 @@ global $DB;
                         if ( $getPage->getResult() ):
                             $html = "<h1>{$getPage->getResult()[ 0 ][ 'pag_name' ]}</h1>";
                             $html .= "<p>{$getPage->getResult()[ 0 ][ 'pag_content' ]}</p>";
-                            echo utf8_encode( $html );
+                            echo $html;
                         else:
                             echo "<div>";
                             echo "<h1 style=\"text-align:center\">KEEP<br />CALM</h1><h1 style=\"text-align:center\">404</h1><h1 style=\"text-align:center\">PAGE NOT <br /> FOUND</h1>";
@@ -70,7 +68,19 @@ global $DB;
                     endif;
 
                 else:
+                    //Retorna a home
+                    $getPage = clone $DB;
                     $getPage->QRSelect( "paginas", "WHERE pag_slug = :s", "s=home" );
+                    if ( $getPage->getResult() ):
+                        $html = "<h1>{$getPage->getResult()[ 0 ][ 'pag_name' ]}</h1>";
+                        $html .= "<p>{$getPage->getResult()[ 0 ][ 'pag_content' ]}</p>";
+                        echo $html;
+                    else:
+                        echo "<div>";
+                        echo "<h1 style=\"text-align:center\">KEEP<br />CALM</h1><h1 style=\"text-align:center\">404</h1><h1 style=\"text-align:center\">PAGE NOT <br /> FOUND</h1>";
+                        echo "</div>";
+                        echo 'Status code: #' . http_response_code( 404 );
+                    endif;
                 endif;
                 ?>
 

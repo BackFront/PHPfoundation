@@ -53,7 +53,7 @@ namespace Umbrella {
             self::$Connect->SetAttribute( \PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION );
             return self::$Connect;
         }
-
+        
 
         /** Retorna o Singleton do metodo Connection */
         public function getConnection()
