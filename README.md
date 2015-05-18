@@ -1,5 +1,10 @@
 # PHPfoundation
 
+## Instruções para rodas a fixture ##
+- Configure a conexão do bando de dados no arquivo ( .iniSis/iniSys.php )
+- Rode o arquivo(criar_fixture.php)
+- Execute a index.php
+
 O arquivo SQL do banco de dados encontra-se na pasta
 ./.iniSis/php_fundation.sql
 
