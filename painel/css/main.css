@@ -1,0 +1,583 @@
+/**
+* Theme Name: Douglas Alves - CaveSchool
+* Theme URI: http://douglasalves.tk
+* Description: Plataforma de Ensino
+** 
+* Author: Douglas Alves
+* Author URI: http://douglasalves.tk
+* Version: 1.0
+**/
+@import "reset.css";
+@import "fonts.css";
+@import "icomoon.css";
+@import "root.css";
+
+@import url(http://fonts.googleapis.com/css?family=Montserrat:400,700);
+
+html, body { 
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+body { 
+    background: #E5E9EC;
+    font-family: 'ubuntu-regular';
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+body.auth { 
+    background: #21405f; /* Old browsers */
+    background: -moz-linear-gradient(top,  #21405f 0%, #5a6c83 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#21405f), color-stop(100%,#5a6c83)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  #21405f 0%,#5a6c83 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #21405f 0%,#5a6c83 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #21405f 0%,#5a6c83 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  #21405f 0%,#5a6c83 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#21405f', endColorstr='#5a6c83',GradientType=0 ); /* IE6-9 */
+}
+
+/*===========================================
+ALL THEME
+===========================================*/
+/*----- RESET -----*/
+.clearfix:before,
+.clearfix:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+.clearfix:after { clear: both; }
+.clearfix { *zoom: 1; }
+/*----- COLUM SYSTEM -----*/
+.col2 { width: 160px; float: left; }
+.col4 { width: 320px; float: left; }
+.col5 { width: 400px; float: left; }
+.col6 { width: 480px; float: left; }
+.col7 { width: 560px; float: left; }
+.col8 { width: 640px; float: left; }
+/*------------------------*/
+.wrap {
+    max-width: 990px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/*----- FORMS -----*/
+form { width: 100%; }
+form input {
+    width: 100%;
+    height: 40px;
+    margin: 0 5px 0 0;
+    display: block;
+    background: rgba(0, 0, 0, .25);
+    border: none;
+    padding: 10px;
+    color: #fff;
+}
+form label input:last-child { margin-right: 0; }
+form label { display: block; margin-bottom: 20px; }
+
+form input[type="submit"],
+.button,
+button {
+    width: auto;
+    height: 30px;
+    display: inline-block;
+    border: 2px solid #fff;
+    background: none;
+    padding: 5px 25px !important;
+    cursor: pointer;
+    border-radius: 3px;
+    opacity: .45;
+}
+
+form input[type="submit"]:hover,
+.button:hover,
+button:hover { background: #fff; color: rgba(0, 0, 0, .4); }
+
+form input[type="checkbox"] {
+    width: 10px;
+}
+
+form select {
+    min-width: 60px;
+    height: 40px;
+    margin: 0 5px 0 0;
+    background: rgba(0, 0, 0, .25);
+    border: none;
+    padding: 10px;
+    color: #fff;
+}
+form label.select {
+    position: relative;
+    display: inline-block;
+}
+form label.select i:after {
+    font-family: 'icomoon';
+    content:'\f0dc';
+    text-align: center;
+    color: #999;
+    right:0px;top:0px;
+    margin: 0;
+    padding: 10px;
+    height: 48%;width: 12px;
+    border:1px solid #ccc;
+    position: absolute;
+    pointer-events: none;
+    background: #fff;
+}
+
+form label.checkbox {
+    width: 135px;
+    height: 30px;
+    display: inline-block;
+    background: rgba(255, 255, 255, .25);
+    padding: 8px 10px;
+    color: #fff;
+    font-size: 12px;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+form label.checkbox i:before {
+    font-size: 10px;
+    padding-right: 5px;
+    margin-right: 5px;
+    border-right: 1px solid #ccc;
+}
+
+form label.checkbox input {
+    position: absolute;
+    display: block;
+    opacity: .0;
+}
+
+/* PADDINGS / MARGINS / FLOATS / ETC*/
+pt20 { padding-top: 20px; display: block; }
+
+.pull-left { float: left !important; }
+.pull-right { float: right !important; }
+
+.medium { width: 66.666666%; display: block; }
+.small { width: 33.333333%; display: block; }
+
+.border-radius {
+    border-radius: 200px;
+    width: 100%;
+    height: 100%;
+}
+
+hr.clearfix { background: none; border: none; color: transparent; }
+
+/*===========================================
+LOGIN SCREEN
+===========================================*/
+.login {
+    width: 430px;
+    min-height: 100px;
+    position: absolute;
+    top: 50%;left: 50%;
+    margin-top: -250px;margin-left: -215px;
+}
+
+.login h1 {
+    font-family: 'ubuntu-regular';
+    color: #fff;
+    text-align: center;
+}
+
+.login h1.logo {
+    width: 426px;
+    height: 82px;
+    margin-bottom: 15px;
+    display: block;
+    background: url(../imagens/logo.png) no-repeat center;
+}
+
+.login .box {
+    width: 100%;
+    padding: 30px;
+    background: rgba(0, 0, 0, .2);
+}
+
+/*===========================================
+PAINEL
+===========================================*/
+/* Dashboard */
+
+aside {
+    width: 220px;
+    background: #222A38;
+    min-height: 100%;
+    float: left;
+    padding: 30px 0;
+}
+
+aside a { color: #f1f1f1; display: block; }
+
+aside .user-info img {
+    border-radius: 200px;
+    margin: 0 auto;
+    display: block;
+    border: 3px solid #9FABBD;
+}
+
+aside .user-info .user-name {
+    display: block;
+    color: #9FABBD;
+    font-family: 'ubuntu-bold';
+    margin: 5px 0;
+    font-size: 15px;
+    text-align: center;
+}
+
+aside .user-info .user-actions {
+    color: #f1f1f1;
+    text-align: center;
+    list-style: none;
+    font-family: 'ubuntu-light';
+    font-size: 12px;
+}
+
+aside .user-info .user-actions li {
+    width: 64px;
+    height: 64px;
+    float: left;
+    margin: 3px;
+}
+
+aside .user-info .user-actions .wrap {
+    padding-top: 15px;
+    border-radius: 200px;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, .4);
+}
+
+aside .user-info .user-actions .wrap:hover {
+    background: rgba(90, 177, 188, 0.52);
+}
+
+aside nav { margin-top: 30px; }
+
+aside nav li {
+    width: 100%;
+    height: inherit;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    color: #f1f1f1;
+    position: relative;
+}
+aside nav li a { padding: 15px 15px; }
+
+aside nav li:hover { 
+    background: rgba(0, 0, 0, .3);
+}
+
+aside nav li i { margin-right: 15px; vertical-align: middle; font-size: 15px; }
+
+aside nav li i.arrow {
+    border-left: 12px solid transparent;
+    border-bottom: 12px solid transparent;
+    border-right: 12px solid #E5E9EC;
+    border-top: 12px solid transparent;
+    position: absolute;
+    top:10px;right:-15px;
+    height: 0;
+    width: 0;
+    display: none;
+}
+
+aside nav li.active { background: rgba(0, 0, 0, .4); }
+aside nav li.active i.arrow { display: block; }
+
+main {
+    width: calc(100% - 220px);
+    width: -moz-calc(100% - 220px);
+    width: -webkit-calc(100% - 220px);
+
+    display: inline-block;
+    height: 100% !important;
+    padding-top: 50px;
+    position: relative !important;
+    transition: .2s width;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+
+main * { color: #333; }
+
+main .nav-opt {
+    width: calc( 100% - 220px );
+    width: -moz-calc( 100% - 220px );
+    width: -webkit-calc( 100% - 220px );
+
+    height: 50px;
+    background: #fff;
+    position: fixed;
+    top:0;
+    padding: 0px 15px;
+    transition: .2s width;
+}
+
+main .nav-opt li {
+    padding-right: 10px;
+    margin-right: 10px;
+    border-right: 1px dotted #ccc;
+    float: left;
+}
+
+main .nav-opt input {
+    height: 40px;
+    margin: 5px 0;
+    color: #999;
+    border: none;
+    font-family: 'ubuntu-light';
+}
+
+main .ctr-menu {
+    width: 40px;
+    height: 40px;
+    color: #fff;
+    background: #188fb0;
+    border-radius: 4px;
+    margin: 5px 0;
+    font-size: 15px;
+    text-align: center;
+}
+
+ul.pull-right li a {
+    border: 2px solid #346185;
+    color: #346185;
+    width: 40px;
+    height: 40px;
+    display: block;
+    text-align: center;
+    padding-top: 10px;
+    margin-top: 5px;
+    border-radius: 200px;
+}
+
+ul.pull-right li a:hover { background: #346185; color: #fff; }
+
+ul.pull-right li span {
+    background: #346185;
+    color: #fff;
+    width: 20px;
+    height: 20px;
+    display: block;
+    text-align: center;
+    border-radius: 200px;
+    font-size: 10px;
+    padding-top: 3px;
+    position: absolute;
+}
+
+ul.pull-right li {
+    border-right: none;
+    position: relative;
+}
+
+main .container {
+    padding: 30px;
+    width: 100%;
+    height: 100%;
+}
+
+
+/*===========================================
+CONTROLLERs
+============================================*/
+
+/*********** GLOBALS SETTINGS ***************/
+
+/* Navegation Menu */
+.navegation-links {
+    width: 100%;
+}
+
+.navegation-links ul { 
+    width: 100%;
+    font-family: 'ubuntu-light';
+    font-size: 12px;
+}
+
+.navegation-links li {
+    float: left;
+    margin-right: 5px; 
+}
+
+.navegation-links li.active {
+    text-decoration: underline;
+}
+
+/* Painel Contents */
+.painel.content {
+    width: auto;
+    height: 100%;
+    padding-top: 20px;
+}
+
+.painel .element {
+    background: rgba(255, 255, 255, .8);
+    height: 100%;
+    display: inline-table;
+    padding: 15px;
+    margin-right: 5px;
+}
+
+.painel .element:last-child { margin-right: 30px; }
+
+.painel .element .title {
+    color: #999;
+    border-bottom: 1px dotted #999;
+    padding-bottom: 10px;
+    margin-bottom: 30px;
+    font-family: arial;
+    font-weight: bold;
+    font-size: .75em;
+    text-transform: uppercase;
+}
+
+.element a { color: #188FB0; }
+
+.close-box { color: rgba(255, 0, 0, .2); font-size: 10px; cursor: pointer; }
+.close-box:hover { color: rgba(255, 0, 0, .4); }
+
+/* Tables */
+.element table.table {
+    width: 100%;
+    border: 1px solid #f1f1f1;
+    background: #fff;
+    padding: 5px;
+    display: block;
+    border-collapse: collapse;
+}
+.element table.table .action { font-size: 12px; color: #188FB0; }
+
+.element table.table thead { background: #f1f1f1; }
+.element table.table thead th {
+    font-weight: bold;
+    padding: 5px 30px;
+    text-align: left;
+    vertical-align: top;
+}
+
+.element table.table tbody tr { border-bottom: 1px solid #f1f1f1; }
+.element table.table tbody tr:hover { background: rgba(0, 0, 0, .03); }
+.element table.table tbody td {
+    padding: 15px 30px;
+    vertical-align: bottom;
+}
+.element table.table tbody tr:last-child { border-bottom: none; }
+
+/*=================== FORM ===================*/
+/*Buntons element*/
+.element .wrap-buttons {
+    margin-bottom: 15px;
+}
+
+.element .button,
+.element button,
+.element input[type="submit"] {
+    border: 1px solid #222A38;
+}
+
+/*Labels*/
+.element label { 
+    display: inline-block; 
+    float: left; 
+    padding-right: 5px;
+}
+
+.element label.medium-small{ width: 33.33333333333333%; }
+.element label.medium { width: 50%; }
+.element label.small { width: 25%; }
+
+.element label span {
+    display: inline-block;
+    margin-bottom: 15px;
+}
+
+/*Inputs*/
+.element input {
+    background: rgba(255, 255, 255, .7);
+    border: 2px solid #e6e6e6;
+    color: #545454;
+    font-weight: bold;
+}
+
+.element input:disabled { background: rgba(0, 0, 0, .03); }
+
+/*Select*/
+.element .select-group select { 
+    border: 2px solid #e6e6e6;
+    width: 100% !important;
+    height: 40px;
+    font-size: 12px;
+    outline: none;
+    
+    cursor: pointer;
+    line-height: 45px;
+    color: #545454;
+    font-weight: bold;
+    background: rgba(255, 255, 255, .7);
+    padding: 5px;
+    padding-right: 40px;
+}
+
+.element .select-group { position: relative; }
+
+.element .select-group div:after {
+    background: none repeat scroll 0 0 #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    color: #999;
+    content: "";
+    font-family: "icomoon";
+    margin: 0;
+    padding: 10px;
+    pointer-events: none;
+    position: absolute;
+    right: 0;
+    text-align: center;
+    top: -0.6px;
+}
+
+
+.element-bottom {
+    width: calc(100% - 220px);
+    width: -moz-calc(100% - 220px);
+    width: -webkit-calc(100% - 220px);
+    
+    
+    position: fixed;
+    bottom: 0;
+    background: #fff;
+    border-top: 1px solid rgba(0, 0, 0, .3);
+    padding: 15px;
+    z-index: 100;
+}
+
+.element .title {
+    color: #999;
+    border-bottom: 1px dotted #999;
+    padding-bottom: 10px;
+    margin-bottom: 30px;
+    font-family: arial;
+    font-weight: bold;
+    font-size: .75em;
+    text-transform: uppercase;
+}
+
+/*=================== #### ===================*/
+
+
+
+.debug {
+    min-width: 700px;
+}
+
+//* { border: 1px solid; }

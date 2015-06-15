@@ -1,0 +1,79 @@
+* {
+    margin: 0;
+    padding: 0;
+    outline: none;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+
+    -webkit-box-sizing: border-box !important;
+    -moz-box-sizing: border-box !important;
+    box-sizing: border-box !important;
+}
+
+html,a,b,strong,p,h1,h2,h3,h4,h5,div,section {
+    text-decoration: none;
+    margin: 0;
+    padding: 0;
+}
+
+/*::-webkit-input-placeholder{
+   color: rgba(255, 255, 255, .15);
+}
+
+:-moz-placeholder{
+   color: rgba(255, 255, 255, .15);
+}
+
+::-moz-placeholder {
+   color: rgba(255, 255, 255, .15);
+}
+
+:-ms-input-placeholder {
+   color: rgba(255, 255, 255, .15);
+}*/
+
+/*********************************************************
+BARRA DE ROLAGEM
+**********************************************************/
+/* altura da barra de rolagem */
+::-webkit-scrollbar,
+::-moz-scrollbar {
+    height: 5px;
+}
+
+/* Fundo da barra de rolagem */
+::-webkit-scrollbar-track-piece,
+::-moz-scrollbar-track-piece {
+    background-color: #ccc;
+    height: 3px !important;
+}
+
+/* Cor do indicador de rolagem */
+::-webkit-scrollbar-thumb:horizontal,
+::-moz-scrollbar-thumb:horizontal {
+    background-color: rgba(20, 25, 34, .5);
+    border-radius: 30px;
+}
+
+/* Cor do indicador de rolagem - ao passar o mouse */
+::-webkit-scrollbar-thumb:horizontal:hover,
+::-moz-scrollbar-thumb:horizontal:hover {
+    background-color: rgba(34, 42, 56, .9);
+}
+
+
+.ps-container > .ps-scrollbar-x-rail > .ps-scrollbar-x {
+    background-color: rgb(6, 61, 92) !important;
+    height: 5px !important;
+}
+
+.ps-container.ps-active-x > .ps-scrollbar-x-rail, 
+.ps-container.ps-active-y > .ps-scrollbar-y-rail {
+    background: rgba(0, 0, 0, .3) !important;
+    height: 3px !important;
+}
+
+ul,li,button:focus {
+    list-style: none;
+    outline: none !important;
+}

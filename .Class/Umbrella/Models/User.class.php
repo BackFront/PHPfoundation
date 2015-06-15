@@ -28,7 +28,7 @@ namespace Umbrella\Models {
         private $Token;
 
         /** Tabelas e colunas a serem manipuladas  */
-        public $TableUser = 'umb_user'; //TABELA USER
+        public $TableUser = 'users'; //TABELA USER
         //----------------------------------------------------------------------
         public $userEmail = 'user_email'; //CAMPO USER -> user_email
         public $userPassword = 'user_password'; //CAMPO USER -> user_password
@@ -37,6 +37,8 @@ namespace Umbrella\Models {
         /**
          * @param type $Level = Informar o level minimo que o usuario deve ter 
          */
+
+
         function __construct( $Level )
         {
             $this->Level = ( int ) $Level;
@@ -102,10 +104,13 @@ namespace Umbrella\Models {
                 return FALSE;
             else :
                 $authUser = $DB;
-                $authUser->QRSelect( $TableUser, "WHERE {$this->userEmail} = :e AND {$this->userPassword} = :p AND {$this->userToken} = :t", "e={$_SESSION[ 'userLogin' ][ 'user_email' ]}&p={$_SESSION[ 'userLogin' ][ 'user_password' ]}&t={$_SESSION[ 'userLogin' ][ 'user_token' ]}" );
+                $authUser->QRSelect( $this->TableUser, "WHERE {$this->userEmail} = :e AND {$this->userPassword} = :p AND {$this->userToken} = :t", "e={$_SESSION[ 'userLogin' ][ 'user_email' ]}&p={$_SESSION[ 'userLogin' ][ 'user_password' ]}&t={$_SESSION[ 'userLogin' ][ 'user_token' ]}" );
                 if ( $authUser->getResult() ) {
                     return TRUE;
                 } else {
+                    if ( isset( $_SESSION[ 'userLogin' ] ) ) {
+                        unset( $_SESSION[ 'userLogin' ] );
+                    }
                     return FALSE;
                 }
             endif;
@@ -117,7 +122,7 @@ namespace Umbrella\Models {
          */
         private function actionLogin()
         {
-            if ( !$this->Email || !$this->Senha || \Umbrella\Helper::CheckEmail( $this->Email ) ) :
+            if ( !$this->Email || !$this->Senha || !\Umbrella\Helper::CheckEmail( $this->Email ) ) :
                 $this->Error = "Login ou senha não pode ser vazio";
                 $this->Result = FALSE;
                 if ( isset( $_SESSION[ 'userLogin' ] ) ) :
@@ -151,7 +156,7 @@ namespace Umbrella\Models {
             global $DB;
             $this->setToken();
             $getUser = $DB;
-            $getUser->QRSelect( $TableUser, "WHERE {$this->userEmail} = :e AND {$this->userPassword} = :p", "e={$this->Email}&p={$this->Senha}" );
+            $getUser->QRSelect( $this->TableUser, "WHERE {$this->userEmail} = :e AND {$this->userPassword} = :p", "e={$this->Email}&p={$this->Senha}" );
             if ( $getUser->getResult() ) :
                 $this->Result = $getUser->getResult()[ 0 ];
                 return true;

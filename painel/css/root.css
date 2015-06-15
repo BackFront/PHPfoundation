@@ -1,0 +1,288 @@
+/***********************************
+ABREVIACOES
+***********************************/
+.pull-left { float: left !important; }
+.pull-center { margin-left: auto !important; margin-right: auto !important; }
+.pull-right { float: right !important; }
+
+.disp-b { display: block !important; }
+.disp-t { display: table !important; }
+.disp-i { display: inline !important; }
+.disp-n { display: none !important; }
+.disp-ib { display: inline-block !important; }
+.disp-it { display: inline-table !important; }
+
+.marg-t-0 { margin-top: 0px !important; }
+.marg-t-5 { margin-top: 5px !important; }
+.marg-t-10 { margin-top: 5px !important; }
+.marg-t-15 { margin-top: 5px !important; }
+.marg-t-20 { margin-top: 5px !important; }
+
+.marg-r-0 { margin-right: 0px !important; }
+.marg-r-5 { margin-right: 5px !important; }
+.marg-r-10 { margin-right: 10px !important; }
+.marg-r-15 { margin-right: 15px !important; }
+.marg-r-20 { margin-right: 20px !important; }
+
+.marg-b-0 { margin-bottom: 0px !important; }
+.marg-b-5 { margin-bottom: 5px !important; }
+.marg-b-10 { margin-bottom: 10px !important; }
+.marg-b-15 { margin-bottom: 15px !important; }
+.marg-b-20 { margin-bottom: 20px !important; }
+
+.marg-l-0 { margin-left: 0px !important; }
+.marg-l-5 { margin-left: 5px !important; }
+.marg-l-10 { margin-left: 10px !important; }
+.marg-l-15 { margin-left: 15px !important; }
+.marg-l-20 { margin-left: 20px !important; }
+
+/***********************************
+ELEMENTS CONFIG DESIGN
+***********************************/
+.wrap {
+    max-width: 990px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.wrap.liquid { max-width: 90%; }
+
+/***********************************
+FORMULARIO
+***********************************/
+label { font-family: 'ubuntu-regular'; }
+
+
+/************* Radio Element *************/
+.radio-group { margin-bottom: 30px; }
+.radio-group label {  
+    display: inline-block;  
+    cursor: pointer;  
+    position: relative;  
+    padding-left: 25px;  
+    margin-right: 15px;  
+    font-size: 13px;
+    font-family: arial;
+}
+.radio-group label:before {  
+    width: 16px;  
+    height: 16px;
+    font-family: 'icomoon';
+
+    content: "";  
+    display: inline-block;  
+    border: 1px solid #ccc;
+    border-radius: 30px;
+    
+    margin-right: 10px;  
+    position: absolute;  
+    left: 0;
+    background-color: rgba(255, 255, 255, .7); 
+/*    box-shadow: inset 0px 2px 3px 0px rgba(0, 0, 0, .3), 0px 1px 0px 0px rgba(255, 255, 255, .8);*/
+}
+.radio-group input[type="radio"] { display: none !important; }
+.radio-group input[type=radio]:checked + label:before {
+    content: "\f111";
+    color: #545454;  
+    font-size: 12px;  
+    text-align: center;  
+    line-height: 15px;
+    padding-left: 2px;
+}
+
+/************* Checkbox Element *************/
+.checkbox-group { margin-bottom: 30px; }
+.checkbox-group label {  
+    display: inline-block;  
+    cursor: pointer;  
+    position: relative;  
+    padding-left: 25px;  
+    margin-right: 15px;  
+    font-size: 13px;  
+}
+.checkbox-group label:before {  
+    font-family: 'icomoon';
+    font-size: 21px !important;
+    content: "";  
+    display: inline-block;  
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    
+    width: 16px;  
+    height: 16px;  
+
+    margin-right: 10px;
+    position: absolute;  
+    left: 0;
+    background: rgba(255, 255, 255, .7); 
+/*    box-shadow: inset 0px 2px 3px 0px rgba(0, 0, 0, .3), 0px 1px 0px 0px rgba(255, 255, 255, .8);*/
+}
+.checkbox-group input[type="checkbox"] { display: none !important; }
+.checkbox-group input[type="checkbox"]:checked + label:before {
+    content: "\e7dc";
+    color: #545454;  
+    font-size: 30px;  
+    text-align: center;  
+    line-height: 15px;
+}
+
+/************* Checkbox Button *************/
+.checkbox-button {
+    width: 135px;
+    height: 30px;
+    background: rgba(0, 0, 0, .25);
+    padding: 8px 10px;
+    display: inline-block;
+    border-radius: 3px;
+    color: #fff;
+}
+
+.checkbox-button label {
+    font-family: 'ubuntu-regular';
+    display: block;
+    padding-left: 30px;
+}
+
+.checkbox-button label::before {
+    font-family: 'icomoon';
+    content: "\e7db";
+    background: none;
+    border: none;
+    border-right: 1px solid #fff;
+    border-radius: 0;
+    padding-right: 5px;
+    line-height: 18px;
+    font-size: 12px !important;
+}
+
+.checkbox-button input[type="checkbox"]:checked + label:before { 
+    content: "\f00c";
+    font-size: 15px !important;
+    color: #fff;
+}
+
+/************* Select/Option *************/
+.select-group {
+    position: relative;
+    margin-bottom: 30px;
+}
+.select-group label::before {
+    content: "";
+    font-family: "icomoon";
+}
+.select-group label {
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    background: #fff;
+    color: #666;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    text-align: center;
+    line-height: 40px;
+    right:0;
+    pointer-events: none;
+}
+.select-group select {
+    width: 100%;
+    height: 40px;
+    background: rgba(255, 255, 255, .7);
+    border: 2px solid #e6e6e6;
+    padding: 5px;
+    padding-right: 40px;
+    color: #333;
+    font-weight: bold;
+    font-family: tahoma;
+    cursor: pointer !important;
+}
+.select-group option {
+    padding: 5px 10px;
+    border-bottom: 1px solid #f1f1f1;
+}
+
+/************* Input Text *************/
+.input-text-group { 
+    width: 100%;
+    margin-bottom: 30px;
+}
+.input-text-group input {
+    width: 100%;
+    height: 40px;
+    padding: 5px;
+    border: 2px solid #e6e6e6;
+    margin: 0 0 20px;
+}
+
+/************* Textarea *************/
+.textarea-group {
+    width: 100%;
+    margin-bottom: 30px;
+}
+.textarea-group textarea { 
+    width: 100%; 
+    min-height: 120px;
+    padding: 10px;
+    background: rgba(255, 255, 255, .7);
+    border: 2px solid #e6e6e6;
+    font-family: 'ubuntu-regular';
+    font-size: 15px;
+}
+.textarea-group textarea.no-resize { resize: none !important; }
+
+/************* Buttons *************/
+.button {
+    display: inline-block;
+    border: 1px solid #ccc;
+    background: rgba(255, 255, 255, .7);
+    cursor: pointer;
+    padding: 5px 25px;
+    text-decoration: none;
+    font-size: 12px;
+    font-family: tahoma;
+    font-weight: bold;
+    color: #666;
+    text-transform: uppercase;
+    border-radius: 3px;
+    
+            transition: all .2s;
+         -o-transition: all .2s;
+        -ms-transition: all .2s;
+       -moz-transition: all .2s;
+    -webkit-transition: all .2s;
+}
+
+.button:hover {
+    color: rgba(255, 255, 255, .7);
+    background: #666;
+    border-color: #666;
+}
+
+.button.hover-style-b:hover { background: #fff; color: rgba(0, 0, 0, .4); }
+.button.hover-style-c:hover { background: #fff; color: rgba(0, 0, 0, .4); padding: 5px 30px;  }
+
+.disabled,
+*:disabled,
+.disabled:hover,
+*[disabled="disabled"] { 
+    background: #F0F0F0;
+    cursor: no-drop;
+    color: #ccc;
+    border: #ccc;
+}
+
+/**********************************
+GRID SYSTEM
+***********************************/
+[class^="_"], [class*="_"] { float: left; display: block;  }
+._12col { width: 100%;}
+._11col { width: 91.66666666666666%;}
+._10col { width: 83.33333333333333%;}
+._9col { width: 75%;}
+._8col { width: 66.66666666666666%;}
+._7col { width: 58.33333333333333%;}
+._6col { width: 50%;}
+._5col { width: 41.66666666666666%;}
+._4col { width: 33.33333333333333%;}
+._3col { width: 25%;}
+._2col { width: 16.66666666666666%;}
+._1col { width: 8.333333333333333%;}
