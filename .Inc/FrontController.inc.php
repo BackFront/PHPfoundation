@@ -1,12 +1,12 @@
 <?php
 $getexe = filter_input( INPUT_GET, 'exe', FILTER_DEFAULT );
 $getexe = str_replace( '\\', DIRECTORY_SEPARATOR, $getexe );
-$_ = DIRECTORY_SEPARATOR;$_ = DIRECTORY_SEPARATOR;
+$_ = DIRECTORY_SEPARATOR;
 //QUERY STRING
 if ( !empty( $getexe ) ):
-    echo $includepatch = __DIR__ . "${_}system${_}" . strip_tags( trim( $getexe ) . '.php' );
+    $includepatch = __DIR__ . "${_}view${_}" . strip_tags( trim( $getexe ) . '.php' );
 else:
-    $includepatch = __DIR__ . "${_}system${_}home.php";
+    $includepatch = __DIR__ . "${_}view${_}home.php";
 endif;
 
 if ( file_exists( $includepatch ) ):
