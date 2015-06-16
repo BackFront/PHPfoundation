@@ -85,6 +85,7 @@ if ( !$Login->checkLogin() ) {
                             echo "<li><a href=\"?exe=edit&uid={$key[ 'id' ]}\">{$key[ 'pag_name' ]}</a></li>";
                         endforeach;
                         ?>
+                        <li class="active"><a href="#"><i class="glyphicon glyphicon-plus"></i> Criar nova página <sub>(OFF)</sub></a></li>
                     </ul>
                 </div>
                 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">

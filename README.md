@@ -14,7 +14,7 @@ a constante 'SUBDIR' caso o projeto não esteja na pasta raiz.
 >PS: O arquivo SQL do banco de dados encontra-se na pasta ( .iniSis/php_fundation.sql )
 
 ## Instruções para acessar o painel admin ##
-- <caminho_base>/painel
+- /*caminho_base*/painel
 - **Login:** admin@logar.com
 - **Senha:** logar123
 

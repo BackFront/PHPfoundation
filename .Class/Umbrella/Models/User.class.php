@@ -70,8 +70,12 @@ namespace Umbrella\Models {
         /**  @param array $Datas = Array retornado do formulário com o email e senha do usuário */
         public function Logar( array $Datas )
         {
+            $Args = [
+                'cost' => 11,
+                'salt' => sha1("UMBR3LL4")
+            ];            
             $this->Email = ( string ) strip_tags( trim( $Datas[ 'email' ] ) );
-            $this->Senha = ( string ) strip_tags( trim( sha1( md5( $Datas[ 'senha' ] ) ) ) );
+            $this->Senha = ( string ) password_hash( $Datas[ 'senha' ], PASSWORD_BCRYPT, $Args );
             $this->actionLogin();
         }
 
@@ -149,7 +153,7 @@ namespace Umbrella\Models {
          * <b>getUser: </b>Verifica se o email e a senha existem no banco de dados
          * @global $DB = Instancia com o banco de dados
          * @return boolean = Retorna TRUE ou FALSE e joga o resultado dentro do
-         * atribulto Result
+         * atributo Result
          */
         private function getUser()
         {
